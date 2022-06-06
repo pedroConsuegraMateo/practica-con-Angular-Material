@@ -1,0 +1,35 @@
+<app-menu></app-menu>
+<main class="container mt-5">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-7">
+            <ng-container *ngIf="this.usuario">
+                <mat-card class="p-5">
+                    <mat-card-header>
+                        <div mat-card-avatar ><img class="example-header-image" [src]="usuario.results[0].picture.thumbnail" alt=""></div>
+                        <mat-card-title>{{usuario.results[0].name.title}} {{usuario.results[0].name.first}} {{usuario.results[0].name.last}}</mat-card-title>
+                        <mat-card-subtitle>{{usuario.results[0].location.city}}, {{usuario.results[0].location.country}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores consectetur eveniet voluptatum sint sapiente, ipsam ducimus ipsa repudiandae officia. Libero!</p>
+                    </mat-card-content>
+                    <mat-list>
+                        <mat-list-item><mat-icon class="me-3">location_on</mat-icon><a mat-button target="_blank" [href]="'https://www.google.es/maps/@' + usuario.results[0].location.coordinates.latitude + ',' + usuario.results[0].location.coordinates.longitude + ',15z'">{{usuario.results[0].location.coordinates.latitude}} | {{usuario.results[0].location.coordinates.longitude}}</a></mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item><mat-icon class="me-3">call</mat-icon><a mat-button target="_blank" [href]="'tel:' + usuario.results[0].phone">{{usuario.results[0].phone}}</a></mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item><mat-icon class="me-3">mail</mat-icon><a mat-button target="_blank" [href]="'mailto:' + usuario.results[0].email" >{{usuario.results[0].email}}</a></mat-list-item>
+                    </mat-list>
+                    <mat-card-actions align="end">
+                        <button mat-raised-button color="primary"><mat-icon>edit</mat-icon> Editar</button>
+                        <button mat-raised-button color="warn"><mat-icon>delete</mat-icon> Borrar</button>
+                    </mat-card-actions>
+                </mat-card>
+            </ng-container>
+        </div>
+        <div class="col-3">
+            
+        </div>
+        <div class="col-1"></div>
+    </div>
+</main>
